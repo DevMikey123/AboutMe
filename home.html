@@ -1,0 +1,268 @@
+<!doctype HTML>
+<html lang="en">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8">
+    <title>DevMikey123 | Home</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            transition: background-color 0.5s, color 0.5s;
+            scroll-behavior: smooth;
+        }
+        #menu {
+            padding: 10px 20px;
+            border-radius: 20px;
+            display: flex;
+            justify-content: center;
+            position: fixed;
+            top: 10px;
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: 1000;
+            background: white;
+            transition: background-color 0.5s;
+        }
+        #menu:hover {
+            background-color: rgba(8, 202, 105, 0.9);
+        }
+        #menu a {
+            text-decoration: none;
+            color: black;
+            font-weight: bold;
+            padding: 10px 20px;
+            background-color: transparent;
+            border-radius: 5px;
+            margin: 0 5px;
+            transition: background-color 0.3s, color 0.3s;
+        }
+        #menu a:hover {
+            background-color: white;
+            color: #08ca69;
+        }
+        #menu .divider {
+            width: 1px;
+            background-color: black;
+            margin: 0 10px;
+        }
+        .dark-theme #menu {
+            background-color: #333;
+        }
+        .dark-theme #menu a {
+            color: white;
+        }
+        .dark-theme #menu .divider {
+            background-color: white;
+        }
+        .theme-switcher {
+            cursor: pointer;
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            width: 30px;
+            height: 30px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: #08ca69;
+            border-radius: 50%;
+            transition: background-color 0.5s;
+        }
+        .theme-switcher .icon {
+            width: 20px;
+            height: 20px;
+            transition: transform 0.5s;
+        }
+        .dark-theme .theme-switcher {
+            background-color: #333;
+        }
+        .dark-theme .theme-switcher .icon {
+            transform: rotate(180deg);
+        }
+        .dark-theme {
+            background-color: #121212;
+            color: #ffffff;
+        }
+        .content {
+            text-align: center;
+            padding: 20px;
+            margin-top: 100px;
+        }
+        img {
+            width: 100%;
+            height: auto;
+            border-radius: 10px;
+            display: block;
+        }
+        h1 {
+            margin-top: 60px;
+        }
+        p {
+            margin: 10px 0;
+        }
+        .link {
+            text-decoration: none;
+            color: #08ca69;
+            font-weight: bold;
+            position: relative;
+            transition: color 0.3s;
+        }
+        .link::after {
+            content: '';
+            position: absolute;
+            width: 100%;
+            height: 2px;
+            background-color: #08ca69;
+            left: 0;
+            bottom: -2px;
+            transition: transform 0.3s;
+            transform: scaleX(0);
+            transform-origin: right;
+        }
+        .link:hover::after {
+            transform: scaleX(1);
+            transform-origin: left;
+        }
+        .dark-theme .link {
+            color: #80e0b5;
+        }
+        .dark-theme .link::after {
+            background-color: #80e0b5;
+        }
+        .button {
+            display: inline-block;
+            padding: 10px;
+            font-size: 16px;
+            cursor: pointer;
+            border: none;
+            background-color: transparent;
+            color: #08ca69;
+            border-radius: 5px;
+            margin: 20px 5px;
+            transition: background-color 0.3s, color 0.3s;
+        }
+        .button:hover {
+            background-color: #08ca69;
+            color: white;
+        }
+        .dark-theme .button {
+            color: #80e0b5;
+        }
+        .dark-theme .button:hover {
+            background-color: #80e0b5;
+        }
+        footer {
+            text-align: center;
+            padding: 10px;
+            background: #08ca69;
+            color: white;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+        }
+        .dark-theme footer {
+            background: #333;
+        }
+    </style>
+</head>
+<body>
+    <div id="menu">
+        <a href="#Home">Home</a>
+        <div class="divider"></div>
+        <a href="https://devmikey123.github.io/Expiriments/adder.html">Adder</a>
+        <div class="divider"></div>
+        <a href="https://devmikey123.github.io/Expiriments/adder-beta.html">Adder Beta</a>
+        <div class="divider"></div>
+        <a href="https://devmikey123.github.io/testyour.html">testyour.html</a>
+    </div>
+    <div class="theme-switcher" onclick="toggleTheme()">
+        <img src="https://img.icons8.com/ios-glyphs/30/000000/sun.png" class="icon" id="theme-icon">
+    </div>
+    <div class="content">
+        <h1>Hello there!</h1>
+        <p>My name is Mikey. I am 15 years old and I love HTML. I do programming for fun and to learn new things.</p>
+        <p>Check out my projects:</p>
+        <p>I have created the <a href="https://devmikey123.github.io/Expiriments/adder.html" class="link">Adder</a> project and its <a href="https://devmikey123.github.io/Expiriments/adder-beta.html" class="link">Beta Version</a>.</p>
+        <p>These projects are simple calculators that add two numbers together. I built them to practice my HTML, CSS, and JavaScript skills.</p><br>
+        <p>I also created <a href="https://devmikey123.github.io/testyour.html/" class="link">testyour.html</a> where you can test your HTML websites with the code langauges HTML, CSS and JS.</p>
+        <img src="Knipsel.PNG" alt="Adder" id="main-image">
+        <div>
+            <button class="button" onclick="openFullscreen()">
+            <img src="https://img.icons8.com/ios-filled/24/08ca69/full-screen.png" alt="Fullscreen Icon">
+            </button>
+            <div class="testyourhtml-img">
+            <img src="testyourhtml.png" alt="testyour.html" id="testyourhtml-img">
+            <div>
+            <button class="button" onclick="openFullscreentestyourhtml()">
+            <img src="https://img.icons8.com/ios-filled/24/08ca69/full-screen.png" alt="Fullscreen Icon">
+            </button>
+            <button class="button" onclick="scrollToTop()">
+            <img src="https://img.icons8.com/ios-filled/24/08ca69/up.png" alt="Scroll to Top Icon">
+            </button>
+        </div>
+    </div>
+    <footer>
+        Credits to <a href="https://github.com/DevMikey123" style="color: white;">DevMikey123 on GitHub</a>
+    </footer>
+
+    <script>
+        function toggleTheme() {
+            const body = document.body;
+            const icon = document.getElementById('theme-icon');
+            const currentTheme = body.classList.toggle('dark-theme') ? 'dark' : 'light';
+            localStorage.setItem('theme', currentTheme);
+            if (currentTheme === 'dark') {
+                icon.src = 'https://img.icons8.com/ios-glyphs/30/000000/moon.png';
+            } else {
+                icon.src = 'https://img.icons8.com/ios-glyphs/30/000000/sun.png';
+            }
+        }
+
+        function applyStoredTheme() {
+            const storedTheme = localStorage.getItem('theme');
+            if (storedTheme === 'dark') {
+                document.body.classList.add('dark-theme');
+                document.getElementById('theme-icon').src = 'https://img.icons8.com/ios-glyphs/30/000000/moon.png';
+            }
+        }
+
+        // Fullscreen functionality
+        function openFullscreen() {
+            const elem = document.getElementById('main-image');
+            if (elem.requestFullscreen) {
+                elem.requestFullscreen();
+            } else if (elem.mozRequestFullScreen) { // Firefox
+                elem.mozRequestFullScreen();
+            } else if (elem.webkitRequestFullscreen) { // Chrome, Safari and Opera
+                elem.webkitRequestFullscreen();
+            } else if (elem.msRequestFullscreen) { // IE/Edge
+                elem.msRequestFullscreen();
+            }
+        }
+        
+        // Fullscreen functionality
+        function openFullscreentestyourhtml() {
+            const elem = document.getElementById('testyourhtml-img');
+            if (elem.requestFullscreen) {
+                elem.requestFullscreen();
+            } else if (elem.mozRequestFullScreen) { // Firefox
+                elem.mozRequestFullScreen();
+            } else if (elem.webkitRequestFullscreen) { // Chrome, Safari and Opera
+                elem.webkitRequestFullscreen();
+            } else if (elem.msRequestFullscreen) { // IE/Edge
+                elem.msRequestFullscreen();
+            }
+        }
+
+        // Scroll to top functionality
+        function scrollToTop() {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        // Apply stored theme on page load
+        document.addEventListener('DOMContentLoaded', applyStoredTheme);
+    </script>
+</body>
+</html>
