@@ -4,6 +4,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta charset="UTF-8">
     <title>DevMikey123 | Home</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -13,62 +15,51 @@
             scroll-behavior: smooth;
         }
         #menu {
-            padding: 10px 20px;
-            border-radius: 20px;
-            display: flex;
-            justify-content: center;
+            display: none;
+        }
+        #snackbar-menu {
+            display: none;
             position: fixed;
-            top: 10px;
-            left: 50%;
-            transform: translateX(-50%);
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5);
             z-index: 1000;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+        #snackbar-menu .menu-content {
             background: white;
-            transition: background-color 0.5s;
+            padding: 20px;
+            border-radius: 10px;
+            width: 80%;
+            text-align: center;
+            animation: fadeInDown 0.5s;
         }
-        #menu:hover {
-            background-color: rgba(8, 202, 105, 0.9);
-        }
-        #menu a {
+        #snackbar-menu a {
+            display: block;
             text-decoration: none;
             color: black;
             font-weight: bold;
-            padding: 10px 20px;
-            background-color: transparent;
-            border-radius: 5px;
-            margin: 0 5px;
-            transition: background-color 0.3s, color 0.3s;
+            margin: 10px 0;
+            transition: color 0.3s;
         }
-        #menu a:hover {
-            background-color: white;
+        #snackbar-menu a:hover {
             color: #08ca69;
-        }
-        #menu .divider {
-            width: 1px;
-            background-color: black;
-            margin: 0 10px;
-        }
-        .dark-theme #menu {
-            background-color: #333;
-        }
-        .dark-theme #menu a {
-            color: white;
-        }
-        .dark-theme #menu .divider {
-            background-color: white;
         }
         .theme-switcher {
             cursor: pointer;
-            position: fixed;
-            top: 20px;
-            right: 20px;
             width: 30px;
             height: 30px;
+            background-color: #08ca69;
+            border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
-            background-color: #08ca69;
-            border-radius: 50%;
             transition: background-color 0.5s;
+            margin: 10px auto;
         }
         .theme-switcher .icon {
             width: 20px;
@@ -153,6 +144,34 @@
         .dark-theme .button:hover {
             background-color: #80e0b5;
         }
+        .hamburger {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: fixed;
+            top: 20px;
+            left: 20px;
+            width: 40px;
+            height: 40px;
+            background-color: #08ca69;
+            border-radius: 50%;
+            cursor: pointer;
+            z-index: 1001;
+            transition: background-color 0.5s;
+        }
+        .hamburger:hover {
+            background-color: #06a357;
+        }
+        .hamburger .icon {
+            font-size: 20px;
+            color: white;
+        }
+        .dark-theme .hamburger {
+            background-color: #333;
+        }
+        .dark-theme .hamburger:hover {
+            background-color: #444;
+        }
         footer {
             text-align: center;
             padding: 10px;
@@ -176,30 +195,52 @@
         <a href="https://devmikey123.github.io/Expiriments/adder-beta.html">Adder Beta</a>
         <div class="divider"></div>
         <a href="https://devmikey123.github.io/testyour.html">testyour.html</a>
+        <!-- Add more project links here -->
     </div>
     <div class="theme-switcher" onclick="toggleTheme()">
         <img src="https://img.icons8.com/ios-glyphs/30/000000/sun.png" class="icon" id="theme-icon">
+    </div>
+    <div class="hamburger" onclick="toggleSnackbarMenu()">
+        <i class="fas fa-bars icon"></i>
+    </div>
+    <div id="snackbar-menu">
+        <div class="menu-content">
+            <a href="#Home">Home</a>
+            <a href="https://devmikey123.github.io/Expiriments/adder.html">Adder</a>
+            <a href="https://devmikey123.github.io/Expiriments/adder-beta.html">Adder Beta</a>
+            <a href="https://devmikey123.github.io/testyour.html">testyour.html</a>
+            <!-- Add more project links here -->
+            <div class="theme-switcher" onclick="toggleTheme()">
+                <img src="https://img.icons8.com/ios-glyphs/30/000000/sun.png" class="icon" id="snackbar-theme-icon">
+            </div>
+        </div>
     </div>
     <div class="content">
         <h1>Hello there!</h1>
         <p>My name is Mikey. I am 15 years old and I love HTML. I do programming for fun and to learn new things.</p>
         <p>Check out my projects:</p>
-        <p>I have created the <a href="https://devmikey123.github.io/Expiriments/adder.html" class="link">Adder</a> project and its <a href="https://devmikey123.github.io/Expiriments/adder-beta.html" class="link">Beta Version</a>.</p>
+        <ul>
+            <li><a href="https://github.com/DevMikey123/Adder" class="link">Adder</a></li>
+            <li><a href="https://github.com/DevMikey123/Adder-Beta" class="link">Adder Beta</a></li>
+            <li><a href="https://github.com/DevMikey123/testyour.html" class="link">testyour.html</a></li>
+            <!-- Add more project links here -->
+        </ul>
         <p>These projects are simple calculators that add two numbers together. I built them to practice my HTML, CSS, and JavaScript skills.</p><br>
-        <p>I also created <a href="https://devmikey123.github.io/testyour.html/" class="link">testyour.html</a> where you can test your HTML websites with the code langauges HTML, CSS and JS.</p>
+        <p>I also created <a href="https://devmikey123.github.io/testyour.html/" class="link">testyour.html</a> where you can test your HTML websites with the code languages HTML, CSS, and JS.</p>
+        <p>Check out my <a href="https://mcpedl.com/user/minimine-productions" class="link">MCPEDL Profile</a>!</p>
         <img src="Knipsel.PNG" alt="Adder" id="main-image">
         <div>
             <button class="button" onclick="openFullscreen()">
-            <img src="https://img.icons8.com/ios-filled/24/08ca69/full-screen.png" alt="Fullscreen Icon">
+                <img src="https://img.icons8.com/ios-filled/24/08ca69/full-screen.png" alt="Fullscreen Icon">
             </button>
             <div class="testyourhtml-img">
-            <img src="testyourhtml.png" alt="testyour.html" id="testyourhtml-img">
-            <div>
+                <img src="testyourhtml.png" alt="testyour.html" id="testyourhtml-img">
+            </div>
             <button class="button" onclick="openFullscreentestyourhtml()">
-            <img src="https://img.icons8.com/ios-filled/24/08ca69/full-screen.png" alt="Fullscreen Icon">
+                <img src="https://img.icons8.com/ios-filled/24/08ca69/full-screen.png" alt="Fullscreen Icon">
             </button>
             <button class="button" onclick="scrollToTop()">
-            <img src="https://img.icons8.com/ios-filled/24/08ca69/up.png" alt="Scroll to Top Icon">
+                <img src="https://img.icons8.com/ios-filled/24/08ca69/up.png" alt="Scroll to Top Icon">
             </button>
         </div>
     </div>
@@ -211,12 +252,15 @@
         function toggleTheme() {
             const body = document.body;
             const icon = document.getElementById('theme-icon');
+            const snackbarIcon = document.getElementById('snackbar-theme-icon');
             const currentTheme = body.classList.toggle('dark-theme') ? 'dark' : 'light';
             localStorage.setItem('theme', currentTheme);
             if (currentTheme === 'dark') {
                 icon.src = 'https://img.icons8.com/ios-glyphs/30/000000/moon.png';
+                snackbarIcon.src = 'https://img.icons8.com/ios-glyphs/30/000000/moon.png';
             } else {
                 icon.src = 'https://img.icons8.com/ios-glyphs/30/000000/sun.png';
+                snackbarIcon.src = 'https://img.icons8.com/ios-glyphs/30/000000/sun.png';
             }
         }
 
@@ -225,7 +269,13 @@
             if (storedTheme === 'dark') {
                 document.body.classList.add('dark-theme');
                 document.getElementById('theme-icon').src = 'https://img.icons8.com/ios-glyphs/30/000000/moon.png';
+                document.getElementById('snackbar-theme-icon').src = 'https://img.icons8.com/ios-glyphs/30/000000/moon.png';
             }
+        }
+
+        function toggleSnackbarMenu() {
+            const menu = document.getElementById('snackbar-menu');
+            menu.style.display = menu.style.display === 'flex' ? 'none' : 'flex';
         }
 
         // Fullscreen functionality
@@ -242,7 +292,6 @@
             }
         }
         
-        // Fullscreen functionality
         function openFullscreentestyourhtml() {
             const elem = document.getElementById('testyourhtml-img');
             if (elem.requestFullscreen) {
@@ -256,12 +305,10 @@
             }
         }
 
-        // Scroll to top functionality
         function scrollToTop() {
             window.scrollTo({ top: 0, behavior: 'smooth' });
         }
 
-        // Apply stored theme on page load
         document.addEventListener('DOMContentLoaded', applyStoredTheme);
     </script>
 </body>
